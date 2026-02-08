@@ -1,0 +1,3 @@
+Use docs/PROMPT.md as the spec and follow docs/ARCHITECTURE.md.
+No scope changes. No refactors unless required.
+Run verification after changes.

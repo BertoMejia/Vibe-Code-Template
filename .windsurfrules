@@ -1,0 +1,3 @@
+Follow docs/PROMPT.md and docs/ARCHITECTURE.md.
+Use ai/skills/* for quality gates, testing, troubleshooting, and artifacts.
+Do not change scope or refactor unless required.
