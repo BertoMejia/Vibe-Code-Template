@@ -3,6 +3,8 @@
 ## Default expectations
 
 - Add tests for core logic and critical flows.
+- Please use test driven development.
+- Every task should have Unit tests and integration tests to make sure the task is working properly.
 - For UI flows, maintain a Playwright smoke suite.
 
 ## E2E smoke (minimum)
