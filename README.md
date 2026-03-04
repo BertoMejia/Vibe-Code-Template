@@ -1,56 +1,34 @@
-# Portable Agent Template (Loki-lite)
+# Vibe Code Template (Unified, Minimal, User-Friendly)
 
-This repo template is designed so you can switch between IDEs (Windsurf, VS Code, Antigravity, Zed, Claude Code, Gemini CLI, Codex CLI) without rewriting your prompt.
+This template gives one clean workflow for agentic coding.
 
-## Core files
-- docs/PROMPT.md: The master build prompt (your format)
-- docs/ARCHITECTURE.md: Architecture + requirements (keep updated)
-- ai/PROJECT_STATE.md: Current phase, goal, and next tasks
-- ai/skills/: Quality gates, testing, troubleshooting, and artifacts
+## Folder choice / best practice
+- Uses `.agent/` for agent runtime files.
+- Why: hidden, tool-friendly, and aligned with Claude-style naming (`CLAUDE.md` + `.agent` ecosystem conventions).
+- Keeps agent mechanics separate from product code and avoids `ai/` naming collisions in app projects.
 
-## How to start a new project
-1) Edit docs/PROMPT.md:
-   - Replace all [insert ... here] placeholders with your project details.
-2) Edit docs/ARCHITECTURE.md:
-   - Fill in roles, routes, domain model, API boundaries, and testing strategy.
-3) Edit ai/PROJECT_STATE.md:
-   - Set Phase 1 goal and next 3–7 tasks.
-4) Add design references to /design if you have them.
+## Single unified system
 
-## IDE usage
+### Product + technical source files
+- `docs/PROJECT.md` → project description and acceptance outcomes
+- `docs/ARCHITECTURE.md` → technical stack, rules, constraints
 
-### Windsurf
-- Open repo in Windsurf.
-- `.windsurfrules` is applied automatically.
-- Start by asking: “Read docs/PROMPT.md and docs/ARCHITECTURE.md. Output the required planning sections only.”
+### Agent runtime files
+- `.agent/AGENT.md` → master instructions and load order
+- `.agent/INIT_PROMPT.md` → tiny init prompt users paste directly
+- `.agent/PLAN.md` → detailed AI-generated project plan
+- `.agent/PROJECT_STATE.md` → live progress against plan
+- `.agent/SERVICE_INDEX.md` → architecture/location tree
+- `.agent/skills/testing.md` → all gates/TDD/verification guidance
 
-### VS Code (Copilot)
-- Copilot uses `.github/copilot-instructions.md`.
-- In Copilot chat, start with:
-  “Read docs/PROMPT.md and docs/ARCHITECTURE.md. Produce items 1–5 from Output requirements. Stop.”
+## Default workflow
+1. Paste `.agent/INIT_PROMPT.md`
+2. Agent reads `.agent/AGENT.md`
+3. Agent follows required load order
+4. Planning first, then TDD execution
+5. Keep PLAN + PROJECT_STATE + SERVICE_INDEX updated continuously
 
-### Antigravity
-Antigravity does not reliably auto-load repo rules, so do this:
-1) First message of each session:
-   “Read docs/PROMPT.md, docs/ARCHITECTURE.md, and ai/skills/00-index.md. Follow the gates and output format.”
-2) Run Phase 1 (planning output only).
-3) Implement in small slices, verifying each slice.
-
-### Zed
-- Zed applies `.rules`.
-- Start prompt:
-  “Follow the repo rules. Read docs/PROMPT.md and docs/ARCHITECTURE.md. Produce planning output only.”
-
-### Claude Code
-- Claude Code automatically reads CLAUDE.md.
-- Start in terminal:
-  “Read docs/PROMPT.md. Produce items 1–5 only. Stop for confirmation before writing code.”
-
-### Gemini CLI
-- Gemini CLI uses GEMINI.md.
-- Start command:
-  “Read docs/PROMPT.md and docs/ARCHITECTURE.md. Produce items 1–5 only and update docs/ARCHITECTURE.md if missing fields.”
-
-### Codex CLI / other terminal agents
-- Always start by explicitly pointing at the files:
-  “Read docs/PROMPT.md and docs/ARCHITECTURE.md. Follow ai/skills/quality-gates.md. Do planning only first.”
+## Notes
+- `docs/design/` is the design reference folder.
+- No duplicate planning systems.
+- No commit automation implied; review-first workflow supported.
