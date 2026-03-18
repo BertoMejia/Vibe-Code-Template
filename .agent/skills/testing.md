@@ -31,6 +31,10 @@ Run what applies, but do run required checks:
 - Integration tests for changed APIs/flows
 - Lint and type checks
 - E2E smoke for primary UX flow when UI changed
+- Functional test
+	- Run the project while developing.
+	- Open the current page being built/ported.
+	- Inspect terminal/browser logs and fix surfaced errors before marking progress complete.
 - Build/package check if deployment artifact changed
 
 ### Gate 6 — State and docs sync
