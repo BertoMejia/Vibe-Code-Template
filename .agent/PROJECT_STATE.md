@@ -2,12 +2,14 @@
 
 Purpose: track exactly where we are in the plan and what is next.
 
+This file is runtime state and belongs in `.agent/`. It should be maintained from `docs/PLAN.md` and `docs/ARCHITECTURE_INDEX.md` during execution.
+
 ## Current status
 - Current milestone:
 - Current task:
 - Status: Not Started | In Progress | Blocked | Done
 
-## Progress against PLAN.md
+## Progress against docs/PLAN.md
 - Completed steps:
   - [ ]
 - In-progress steps:
@@ -28,3 +30,4 @@ Purpose: track exactly where we are in the plan and what is next.
 ## Notes for continuation
 - What to continue from next:
 - Any decision made during execution:
+- Any architecture/service map change reflected in `docs/ARCHITECTURE_INDEX.md`:

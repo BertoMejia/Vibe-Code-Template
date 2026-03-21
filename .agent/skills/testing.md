@@ -13,7 +13,7 @@ This is the only process file for quality gates, TDD flow, and verification stan
 ### Gate 2 — Contract clarity
 - Data model impact is identified.
 - API contract impact is identified (inputs, outputs, errors).
-- Affected files/modules are mapped via `.agent/SERVICE_INDEX.md`.
+- Affected files/modules are mapped via `docs/ARCHITECTURE_INDEX.md`.
 
 ### Gate 3 — Test design before implementation
 - Tests are written/updated first.
@@ -39,14 +39,14 @@ Run what applies, but do run required checks:
 
 ### Gate 6 — State and docs sync
 - `.agent/PROJECT_STATE.md` reflects progress and next step.
-- `.agent/PLAN.md` checklist reflects done/pending status.
-- `.agent/SERVICE_INDEX.md` updated if architecture/locations changed.
+- `docs/PLAN.md` checklist reflects done/pending status.
+- `docs/ARCHITECTURE_INDEX.md` updated if architecture/locations changed.
 - Any new operational runbook notes are added where relevant.
 
 Stop rule: if any gate fails, fix before proceeding.
 
 ## B) Standard TDD loop (every task slice)
-1. Select the smallest slice from `.agent/PLAN.md`.
+1. Select the smallest slice from `docs/PLAN.md`.
 2. Define expected behavior from acceptance criteria.
 3. Write failing test(s).
 4. Implement minimal code change.

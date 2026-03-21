@@ -1,9 +1,12 @@
-# SERVICE_INDEX.md (Where everything lives)
+# ARCHITECTURE_INDEX.md (Project-specific architecture map)
 
-Purpose: architecture map + location index so agents know where to implement changes.
+## Active services
+- Webapp: `.agent/architecture-rules/webapp.md`
+- API: `.agent/architecture-rules/api.md`
+- Mobile app: load only if the project includes a mobile client, then use `.agent/architecture-rules/mobile.md`
+- Shared rules: load only if the project uses shared contracts, utilities, schemas, or types across multiple services, then use `.agent/architecture-rules/shared.md`
 
 ## Canonical repo tree
-
 ```text
 .
 ├─ webapp/                      # Next.js app (UI + frontend orchestration only)
@@ -26,17 +29,24 @@ Purpose: architecture map + location index so agents know where to implement cha
 │  │  ├─ config/                # environment/config loading
 │  │  └─ errors/                # shared error handling/schema
 │  └─ test/                     # Backend tests
+├─ mobile/                      # React Native app when required by the project
+│  ├─ src/
+│  │  ├─ screens/
+│  │  ├─ components/
+│  │  ├─ services/
+│  │  └─ navigation/
+│  └─ test/
 ├─ shared/                      # Shared types/contracts/utilities (if used)
 ├─ docs/
-│  ├─ PROJECT.md                # Project definition and outcomes
-│  ├─ ARCHITECTURE.md           # Technical architecture/rules
+│  ├─ PROJECT.md                # User-authored project definition
+│  ├─ PLAN.md                   # AI-generated project plan
+│  ├─ ARCHITECTURE_INDEX.md     # Project-specific service map
 │  └─ design/                   # Mockups/reference design assets
 └─ .agent/
    ├─ AGENT.md                  # Runtime operating instructions
    ├─ INIT_PROMPT.md            # Minimal init prompt
-   ├─ PLAN.md                   # Detailed project plan
    ├─ PROJECT_STATE.md          # Current progress
-   ├─ SERVICE_INDEX.md          # This file
+   ├─ architecture-rules/       # Static service-specific architecture rules
    └─ skills/
       └─ testing.md             # Gates + TDD + verification workflow
 ```
@@ -51,6 +61,8 @@ Purpose: architecture map + location index so agents know where to implement cha
 - Backend logging: `api/core/logging`
 - Backend configuration: `api/core/config`
 - Backend shared error schema: `api/core/errors`
+- Mobile API access: `mobile/src/services/apiClient`
+- Shared contracts and schemas: `shared/`
 
 ## Update rule
-If folder/module locations change, update this file in the same PR/patch.
+If folder/module locations change, update this file in the same patch.

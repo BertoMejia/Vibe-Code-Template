@@ -1,7 +1,5 @@
 # PLAN.md
 
-AI: Generate this plan during initialization from `docs/PROJECT.md` + `docs/ARCHITECTURE.md` before writing code.
-
 Required sections:
 1. Project goal
 2. Milestones (Foundation, Core Flow, Hardening)
