@@ -4,27 +4,35 @@ You are working in the Vibe Code Template.
 
 ## 0) Required load order (always)
 1. `docs/PROJECT.md` (project definition and acceptance outcomes)
-2. `docs/ARCHITECTURE_INDEX.md` (project-specific architecture map and active services)
-3. Load only the relevant static rule files referenced by `docs/ARCHITECTURE_INDEX.md` from `.agent/architecture-rules/`
-4. `docs/PLAN.md` (detailed AI-generated project plan)
-5. `.agent/PROJECT_STATE.md` (current progress against plan)
-6. `.agent/skills/testing.md` (quality gates, TDD flow, verification)
+2. `docs/ARCHITECTURE_INDEX.md` (project-specific architecture map)
+3. `.agent/architecture-rules/shared.md` (shared architecture rules that always apply)
+4. Load only the service-specific static rule files needed for the current task from `.agent/architecture-rules/`
+   - Load `webapp.md` only when working on the webapp
+   - Load `api.md` only when working on the API
+   - Load `mobile.md` only when working on the mobile app
+5. `docs/PLAN.md` (detailed AI-generated project plan)
+6. `.agent/PROJECT_STATE.md` (current progress against plan)
+7. `.agent/skills/testing.md` (quality gates, TDD flow, verification)
 
-If `docs/PLAN.md` is empty or placeholder, generate it first from `docs/PROJECT.md` + `docs/ARCHITECTURE_INDEX.md` + the relevant static rule files in `.agent/architecture-rules/` before coding.
+If `docs/PLAN.md` is empty or placeholder, generate it first from `docs/PROJECT.md` + `docs/ARCHITECTURE_INDEX.md` + `shared.md` + the relevant service-specific static rule files in `.agent/architecture-rules/` before coding.
 If required files are missing or stale, stop and request updates before implementation.
 
 ## 1) Project document ownership and generation rules
 - `docs/PROJECT.md` is the user-authored project definition.
 - `docs/ARCHITECTURE_INDEX.md` is project-specific output generated and maintained from `docs/PROJECT.md`.
-- `docs/PLAN.md` is project-specific output generated from `docs/PROJECT.md` + `docs/ARCHITECTURE_INDEX.md` + the relevant files in `.agent/architecture-rules/`.
+- `docs/PLAN.md` is project-specific output generated from `docs/PROJECT.md` + `docs/ARCHITECTURE_INDEX.md` + `shared.md` + the relevant service-specific files in `.agent/architecture-rules/`.
 - `.agent/PROJECT_STATE.md` is runtime execution state derived from the current plan and implementation progress.
 - `.agent/AGENT.md`, `.agent/skills/testing.md`, and `.agent/architecture-rules/*.md` are static operating files and should not become project-specific.
 - Keep procedural instructions in `.agent/`, not in `docs/`.
 - Keep `docs/PROJECT.md`, `docs/ARCHITECTURE_INDEX.md`, and `docs/PLAN.md` focused on project content only.
+- `docs/PROJECT.md`, `docs/ARCHITECTURE_INDEX.md`, and `docs/PLAN.md` are the source of truth for the current project.
+- If a project-specific requirement or architecture decision conflicts with `.agent/architecture-rules/*.md`, the project-specific docs take precedence.
+- Treat `.agent/architecture-rules/*.md` as default guidance, not immutable rules.
 - `docs/PROJECT.md` should describe the product, user flows, pages, and requirements.
-- `docs/ARCHITECTURE_INDEX.md` should describe active services, ownership, and repo structure for the current project.
+- `docs/ARCHITECTURE_INDEX.md` should describe ownership and repo structure for the current project.
 - `docs/PLAN.md` should contain only the current project plan and execution checklist.
-- Update `docs/ARCHITECTURE_INDEX.md` when service ownership, folder structure, or active services change.
+- Loading rules for architecture files belong in `.agent/AGENT.md`, not in `docs/ARCHITECTURE_INDEX.md`.
+- Update `docs/ARCHITECTURE_INDEX.md` when service ownership or folder structure changes.
 - Update `docs/PLAN.md` when milestones, task slices, or verification steps change.
 - Read project files only when needed for the current task, but always respect the required load order above.
 

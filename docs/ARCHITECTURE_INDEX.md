@@ -1,11 +1,5 @@
 # ARCHITECTURE_INDEX.md (Project-specific architecture map)
 
-## Active services
-- Webapp: `.agent/architecture-rules/webapp.md`
-- API: `.agent/architecture-rules/api.md`
-- Mobile app: load only if the project includes a mobile client, then use `.agent/architecture-rules/mobile.md`
-- Shared rules: load only if the project uses shared contracts, utilities, schemas, or types across multiple services, then use `.agent/architecture-rules/shared.md`
-
 ## Canonical repo tree
 ```text
 .
