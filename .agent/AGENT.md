@@ -10,9 +10,8 @@ You are working in the Vibe Code Template.
    - Load `webapp.md` only when working on the webapp
    - Load `api.md` only when working on the API
    - Load `mobile.md` only when working on the mobile app
-5. `docs/PLAN.md` (detailed AI-generated project plan)
-6. `.agent/PROJECT_STATE.md` (current progress against plan)
-7. `.agent/skills/testing.md` (quality gates, TDD flow, verification)
+5. `docs/PLAN.md` (detailed AI-generated project plan, including the current execution slice)
+6. `.agent/skills/testing.md` (quality gates, TDD flow, verification)
 
 If `docs/PLAN.md` is empty or placeholder, generate it first from `docs/PROJECT.md` + `docs/ARCHITECTURE_INDEX.md` + `shared.md` + the relevant service-specific static rule files in `.agent/architecture-rules/` before coding.
 If required files are missing or stale, stop and request updates before implementation.
@@ -20,17 +19,15 @@ If required files are missing or stale, stop and request updates before implemen
 ## 1) Project document ownership and generation rules
 - `docs/PROJECT.md` is the user-authored project definition.
 - `docs/ARCHITECTURE_INDEX.md` is project-specific output generated and maintained from `docs/PROJECT.md`.
-- `docs/PLAN.md` is project-specific output generated from `docs/PROJECT.md` + `docs/ARCHITECTURE_INDEX.md` + `shared.md` + the relevant service-specific files in `.agent/architecture-rules/`.
-- `.agent/PROJECT_STATE.md` is runtime execution state derived from the current plan and implementation progress.
+- `docs/PLAN.md` is project-specific output generated from `docs/PROJECT.md` + `docs/ARCHITECTURE_INDEX.md` + `shared.md` + the relevant service-specific files in `.agent/architecture-rules/`, and it includes the current execution slice during implementation.
 - `.agent/AGENT.md`, `.agent/skills/testing.md`, and `.agent/architecture-rules/*.md` are static operating files and should not become project-specific.
 - Keep procedural instructions in `.agent/`, not in `docs/`.
 - Keep `docs/PROJECT.md`, `docs/ARCHITECTURE_INDEX.md`, and `docs/PLAN.md` focused on project content only.
 - `docs/PROJECT.md`, `docs/ARCHITECTURE_INDEX.md`, and `docs/PLAN.md` are the source of truth for the current project.
 - If a project-specific requirement or architecture decision conflicts with `.agent/architecture-rules/*.md`, the project-specific docs take precedence.
-- Treat `.agent/architecture-rules/*.md` as default guidance, not immutable rules.
 - `docs/PROJECT.md` should describe the product, user flows, pages, and requirements.
 - `docs/ARCHITECTURE_INDEX.md` should describe ownership and repo structure for the current project.
-- `docs/PLAN.md` should contain only the current project plan and execution checklist.
+- `docs/PLAN.md` should contain the current project plan, execution slice, and verification checklist.
 - Loading rules for architecture files belong in `.agent/AGENT.md`, not in `docs/ARCHITECTURE_INDEX.md`.
 - Update `docs/ARCHITECTURE_INDEX.md` when service ownership or folder structure changes.
 - Update `docs/PLAN.md` when milestones, task slices, or verification steps change.
@@ -60,7 +57,7 @@ For each smallest task slice:
 3) Implement minimal code to make tests pass
 4) Run required verification from `.agent/skills/testing.md`
 5) Refactor safely with tests still green
-6) Update `.agent/PROJECT_STATE.md`
+6) Update the current execution slice in `docs/PLAN.md`
 7) Update `docs/ARCHITECTURE_INDEX.md` if service/module ownership or locations changed
 
 Never mark a task complete unless verification passes.
@@ -88,7 +85,7 @@ A task is done only when all are true:
 - Tests cover success, failure, and edge cases for changed behavior.
 - Lint/type/test checks pass for impacted areas.
 - Logging/error messages are actionable.
-- Docs/state files are updated (`docs/PLAN.md`, `.agent/PROJECT_STATE.md`, `docs/ARCHITECTURE_INDEX.md`).
+- Docs/state files are updated (`docs/PLAN.md`, `docs/ARCHITECTURE_INDEX.md`).
 - Known risks and follow-ups are explicitly listed.
 
 ## 8) Output discipline

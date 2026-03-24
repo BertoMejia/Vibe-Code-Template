@@ -27,6 +27,11 @@ Load this file only when the project includes a web application.
 - Default to Server Components
 - Use Client Components only when required (forms, interactivity, auth state)
 - Keep pages, route segments, and components in clearly owned files
+- Put reusable UI components in `components/`
+- Put constants in `constants/`
+- Put helpers and utility functions in `helpers/`
+- Put hooks in `hooks/`
+- Put service integrations in `services/`
 - Keep reusable UI components separated from page-specific compositions
 - Keep frontend orchestration in services/hooks, not inside presentational components
 - All data fetching goes through the backend API
