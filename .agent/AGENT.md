@@ -1,6 +1,4 @@
-# AGENT.md (single source of operating instructions)
-
-You are working in the Vibe Code Template.
+# Development Rules
 
 ## 0) Required load order (always)
 1. `docs/PROJECT.md` (project definition and acceptance outcomes)
@@ -10,32 +8,24 @@ You are working in the Vibe Code Template.
    - Load `webapp.md` only when working on the webapp
    - Load `api.md` only when working on the API
    - Load `mobile.md` only when working on the mobile app
-5. `docs/PLAN.md` (detailed AI-generated project plan, including the current execution slice)
-6. `.agent/skills/testing.md` (quality gates, TDD flow, verification)
+5. `docs/PLAN.md` (detailed AI-generated project plan, including the current task slice)
+6. `.agent/skills/quality-and-tdd.md` (quality gates, execution loop, and verification)
 
-If `docs/PLAN.md` is empty or placeholder, generate it first from `docs/PROJECT.md` + `docs/ARCHITECTURE_INDEX.md` + `shared.md` + the relevant service-specific static rule files in `.agent/architecture-rules/` before coding.
-If required files are missing or stale, stop and request updates before implementation.
+ If `docs/PLAN.md` is empty or placeholder, generate it first from `docs/PROJECT.md` + `docs/ARCHITECTURE_INDEX.md` + `shared.md` + the relevant service-specific static rule files in `.agent/architecture-rules/` before coding.
+ If required files are missing or stale, stop and request updates before implementation.
 
-## 1) Project document ownership and generation rules
-- `docs/PROJECT.md` is the user-authored project definition.
-- `docs/ARCHITECTURE_INDEX.md` is project-specific output generated and maintained from `docs/PROJECT.md`.
-- `docs/PLAN.md` is project-specific output generated from `docs/PROJECT.md` + `docs/ARCHITECTURE_INDEX.md` + `shared.md` + the relevant service-specific files in `.agent/architecture-rules/`, and it includes the current execution slice during implementation.
-- `.agent/AGENT.md`, `.agent/skills/testing.md`, and `.agent/architecture-rules/*.md` are static operating files and should not become project-specific.
-- Keep procedural instructions in `.agent/`, not in `docs/`.
-- Keep `docs/PROJECT.md`, `docs/ARCHITECTURE_INDEX.md`, and `docs/PLAN.md` focused on project content only.
-- `docs/PROJECT.md`, `docs/ARCHITECTURE_INDEX.md`, and `docs/PLAN.md` are the source of truth for the current project.
-- If a project-specific requirement or architecture decision conflicts with `.agent/architecture-rules/*.md`, the project-specific docs take precedence.
-- `docs/PROJECT.md` should describe the product, user flows, pages, and requirements.
-- `docs/ARCHITECTURE_INDEX.md` should describe ownership and repo structure for the current project.
-- `docs/PLAN.md` should contain the current project plan, execution slice, and verification checklist.
-- Loading rules for architecture files belong in `.agent/AGENT.md`, not in `docs/ARCHITECTURE_INDEX.md`.
-- Update `docs/ARCHITECTURE_INDEX.md` when service ownership or folder structure changes.
-- Update `docs/PLAN.md` when milestones, task slices, or verification steps change.
-- Read project files only when needed for the current task, but always respect the required load order above.
+## 1) Source of truth
+- `docs/PROJECT.md` defines product requirements and acceptance criteria.
+- `docs/ARCHITECTURE_INDEX.md` defines ownership, boundaries, and where to implement changes.
+- `docs/PLAN.md` defines the current plan, active task slice, and verification checklist.
+- `.agent/architecture-rules/*.md` define default technical rules for affected services.
+- If project docs conflict with `.agent/architecture-rules/*.md`, project docs win.
+- Keep reusable operating rules in `.agent/` and project-specific content in `docs/`.
+- Update `docs/ARCHITECTURE_INDEX.md` when ownership or locations change.
+- Update `docs/PLAN.md` when scope, task slices, or verification steps change.
 
 ## 2) Operating principles
-- One system only: do not create duplicate planning/state systems.
-- Keep static agent instructions in `.agent/`; keep project-specific definitions, plans, and architecture files in `docs/`.
+- One system only: do not create duplicate planning, architecture, or tracking systems.
 - Keep changes minimal, scoped, and reversible.
 - Prefer explicit contracts over assumptions.
 - Build for production quality: correctness, security, observability, maintainability.
@@ -50,17 +40,12 @@ Before implementation, output:
 
 Do not start coding until this plan is coherent and testable.
 
-## 4) TDD-first loop (required)
-For each smallest task slice:
-1) Update the relevant checklist item in `docs/PLAN.md`
-2) Add or update failing test(s) first
-3) Implement minimal code to make tests pass
-4) Run required verification from `.agent/skills/testing.md`
-5) Refactor safely with tests still green
-6) Update the current execution slice in `docs/PLAN.md`
-7) Update `docs/ARCHITECTURE_INDEX.md` if service/module ownership or locations changed
+## 4) Execution policy (required)
+For every implementation, refactor, or bug-fix task slice, follow `.agent/skills/quality-and-tdd.md`.
+Use `docs/PLAN.md` to select the current task slice and keep its checklist/status current.
+Update `docs/ARCHITECTURE_INDEX.md` whenever service/module ownership or locations change.
 
-Never mark a task complete unless verification passes.
+Never mark a task complete unless all required verification passes.
 
 ## 5) Anti-stuck execution rules
 - Try up to 3 viable implementation/debug paths before declaring blocked.

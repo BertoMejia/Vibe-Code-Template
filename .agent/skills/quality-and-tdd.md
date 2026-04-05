@@ -1,6 +1,7 @@
-# testing.md (single process file)
+# Quality and TDD
 
-This is the only process file for quality gates, TDD flow, and verification standards.
+Purpose: governs quality gates, execution flow, and verification for code changes.
+Use for any implementation, refactor, or bug fix.
 
 ## A) Quality gates (must pass in order)
 
@@ -24,9 +25,10 @@ This is the only process file for quality gates, TDD flow, and verification stan
 - Minimal implementation satisfies tests.
 - No dead code, hidden feature flags, or placeholder logic.
 - Error handling and logging are meaningful.
+- Keep tests in the correct test location for the project.
 
 ### Gate 5 — Verification
-Run what applies, but do run required checks:
+Run all checks that apply:
 - Unit tests for changed modules
 - Integration tests for changed APIs/flows
 - Lint and type checks
@@ -38,25 +40,25 @@ Run what applies, but do run required checks:
 - Build/package check if deployment artifact changed
 
 ### Gate 6 — State and docs sync
-- `.agent/PROJECT_STATE.md` reflects progress and next step.
-- `docs/PLAN.md` checklist reflects done/pending status.
+- `docs/PLAN.md` reflects both checklist status and the current task slice.
 - `docs/ARCHITECTURE_INDEX.md` updated if architecture/locations changed.
+- Project state file is updated if the repo uses one.
 - Any new operational runbook notes are added where relevant.
 
-Stop rule: if any gate fails, fix before proceeding.
+Stop if any gate fails. Fix it before proceeding.
 
-## B) Standard TDD loop (every task slice)
-1. Select the smallest slice from `docs/PLAN.md`.
+## B) Execution loop (every task slice)
+1. Select the current task slice from `docs/PLAN.md` and keep its checklist/status current.
 2. Define expected behavior from acceptance criteria.
 3. Write failing test(s).
 4. Implement minimal code change.
 5. Run targeted checks, then broader relevant checks.
-6. Refactor only with tests still green.
-7. Update state files.
+6. Refactor, cleanup, run linting, and fix linting problems only with tests still green.
+7. Update `docs/PLAN.md` and any affected architecture/state files.
 
 ## C) Bug-fix policy
 - Every bug fix must include a regression test that fails before the fix and passes after it.
-- Document root cause in `.agent/PROJECT_STATE.md` (briefly).
+- Document root cause in project state file if the repo uses one (briefly).
 
 ## D) Production-readiness checklist
 For changed surfaces, verify as applicable:
@@ -65,6 +67,7 @@ For changed surfaces, verify as applicable:
 - Observability: logs/metrics/traces or at minimum structured logging at failure points.
 - Data safety: migration strategy and rollback/forward compatibility.
 - Performance: avoid obvious regressions on critical paths.
+- Clean code: follow project conventions, no commented-out code, clear naming, no temporary/test files or code.
 
 ## E) Verification evidence format (for handoff)
 Provide concise evidence:
