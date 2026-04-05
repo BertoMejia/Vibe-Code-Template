@@ -54,7 +54,9 @@ Stop if any gate fails. Fix it before proceeding.
 4. Implement minimal code change.
 5. Run targeted checks, then broader relevant checks.
 6. Refactor, cleanup, run linting, and fix linting problems only with tests still green.
-7. Update `docs/PLAN.md` and any affected architecture/state files.
+7. Run a build, and watch logs for errors.
+8. Run the application, and test the current routes watching for errors.
+9. Update `docs/PLAN.md` and any affected architecture/state files.
 
 ## C) Bug-fix policy
 - Every bug fix must include a regression test that fails before the fix and passes after it.
