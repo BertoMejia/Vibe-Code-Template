@@ -52,11 +52,12 @@ Stop if any gate fails. Fix it before proceeding.
 2. Define expected behavior from acceptance criteria.
 3. Write failing test(s).
 4. Implement minimal code change.
-5. Run targeted checks, then broader relevant checks.
-6. Refactor, cleanup, run linting, and fix linting problems only with tests still green.
-7. Run a build, and watch logs for errors.
-8. Run the application, and test the current routes watching for errors.
-9. Update `docs/PLAN.md` and any affected architecture/state files.
+5. Run tests, then targeted checks, then broader relevant checks.
+6. If tests fail, fix the implementation or tests as needed, the rerun tests and checks.
+7. Refactor, cleanup, run linting, and fix linting problems only with tests still green.
+8. Run a build, and watch logs for errors.
+9. Run the application, and test the current routes watching for errors.
+10. Update `docs/PLAN.md` and any affected architecture/state files.
 
 ## C) Bug-fix policy
 - Every bug fix must include a regression test that fails before the fix and passes after it.
