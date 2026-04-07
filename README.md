@@ -53,6 +53,7 @@ It gives you a repeatable system that is simple enough to use quickly and strong
 - `docs/PROJECT.md` → what the product does, what it should include, and what success looks like
 - `docs/ARCHITECTURE_INDEX.md` → where things live, who owns what, and where changes belong
 - `docs/PLAN.md` → the current implementation plan and active task slices
+- `docs/DEVELOPER_PLAYBOOK.md` → how to work with the AI effectively: issue workflow, prompt writing, review, and done criteria
 - `docs/design/` → the design reference folder.
 
 ### Agent runtime files

@@ -24,7 +24,7 @@ Only start a new issue if:
 
 * Your current PR is merged or almost done
 * Your branch is clean
-* You are up to date with `main`
+* You are up to date with `main` branch (or whatever the main branch is)
 
 Pick an issue that:
 
@@ -49,7 +49,17 @@ Read the relevant files first. Do not guess.
 
 ---
 
-### 3. Write the Prompt
+### 3. Create a Branch
+
+* Branch from latest `main` branch (or whatever the main branch is)
+* Name it:
+
+  * `feat/<name>`
+  * `fix/<name>`
+
+---
+
+### 4. Write the Prompt
 
 This is the most important step.
 
@@ -128,16 +138,6 @@ A good prompt is short, specific, and scoped.
 
 ---
 
-### 4. Create a Branch
-
-* Branch from latest `main`
-* Name it:
-
-  * `feat/<name>`
-  * `fix/<name>`
-
----
-
 ### 5. Run the AI
 
 Give the AI your prompt.
@@ -207,6 +207,7 @@ Open a PR when:
 * The issue is solved
 * You reviewed the code
 * You manually verified the change
+* You synced with latest `main` branch (or whatever the main branch is)
 
 Keep the PR:
 
@@ -220,19 +221,31 @@ Good target:
 
 ---
 
-### 10. While Waiting for Review
+### 10. Waiting for Review
 
+You are responsible for getting someone to review your code.
+* Please ping them in the group or DM
+* If they are taking a while, ping them again!
+
+While waiting, you can:
 * Start your next issue
 * Or review someone else’s PR
 * Or improve prompts for future work
+
+Review comments:
+
+* Address any feedback from reviewers and make changes where necessary
+* Send back for approval
 
 ---
 
 ### 11. Merge
 
-* Sync with latest `main`
-* Resolve conflicts if needed
-* Merge as soon as approved
+As soon as approved:
+* If there are any changes in code that you are not addressing, create a new issue for them.
+* Sync with latest `main` branch (or whatever the main branch is)
+* Merge
+
 ---
 
 ### 12. Definition of Done
@@ -244,6 +257,7 @@ The issue is done when:
 * You reviewed the code
 * You manually verified the change
 * Logging, error handling, architecture, and efficiency are solid
+* All comments are addressed
 * The PR is approved and merged
 
 ---
