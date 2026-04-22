@@ -39,8 +39,15 @@ Load this file only when the project includes a mobile application.
 - Optimize list rendering, image loading, and app startup time on critical flows
 - Keep accessibility support in place for labels, focus order, touch targets, and screen readers
 
-## Testing locations
-- Mobile tests in `/mobile/test`
+## Code style
+- Follow standard TypeScript/JavaScript naming conventions; match the project's ESLint configuration.
+- Document public classes, methods, and utility functions with JSDoc.
+- Avoid excessive primitive types; encapsulate related data in composite types.
+
+## Testing
+- Mobile tests in `/mobile/test`.
+- Each unit test covers a single function; mock all other dependencies.
+- E2E tests are limited and cover only primary user flows.
 
 ## Deliverables
 - Mobile implementation in `/mobile`

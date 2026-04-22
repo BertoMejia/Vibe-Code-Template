@@ -58,8 +58,15 @@ Load this file only when the project includes a web application.
 - Lazy-load heavy client-only features when possible
 - Do not place business rules in components or client-only utilities when the API should own them
 
-## Testing locations
-- Frontend tests in `/webapp/test`
+## Code style
+- Follow standard TypeScript/JavaScript naming conventions; match the project's ESLint configuration.
+- Document public classes, methods, and utility functions with JSDoc.
+- Avoid excessive primitive types; encapsulate related data in composite types.
+
+## Testing
+- Frontend tests in `/webapp/test`.
+- Each unit test covers a single function; mock all other dependencies.
+- E2E tests are limited and cover only primary user flows.
 
 ## Deliverables
 - Frontend implementation in `/webapp`

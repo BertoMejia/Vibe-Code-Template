@@ -33,3 +33,11 @@ Default architecture principles that apply across the repository unless project-
 - When shared contracts change, update every impacted consumer deliberately
 - Prefer reversible, localized changes over sweeping rewrites unless the task requires broader refactoring
 - Keep rules in this file service-agnostic; put service-specific rules in the corresponding rule file
+
+## Code style
+- Avoid deeply nested blocks: use early returns and extract logic into utility functions.
+- Do not mock data except in tests; never in dev or production paths.
+- Fix the root cause of errors; do not work around them unless explicitly instructed.
+- Exhaust existing implementations before introducing new patterns; if a new pattern replaces an old one, remove the old implementation.
+- Never name files with "improved-" or "refactored-" prefixes.
+- Consider all environments (dev, staging, prod) when writing or changing code.

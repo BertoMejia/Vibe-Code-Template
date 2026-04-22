@@ -69,8 +69,15 @@ Load this file only when the project includes an API or backend service.
 - `/videos/<entity-type>/<entity-id>/<file>.mp4`
 - [insert special hierarchy here]
 
-## Testing locations
-- Backend tests in `/api/test`
+## Code style
+- Follow PEP 8 naming conventions; match the project's linting configuration.
+- Document public classes and methods with PEP-style docstrings.
+- Prefer immutability for data; avoid mutating shared state.
+- Avoid excessive primitive types; encapsulate related data in composite types.
+
+## Testing
+- Backend tests in `/api/test`.
+- Each unit test covers a single function; mock all other dependencies.
 
 ## Deliverables
 - Backend implementation in `/api`
