@@ -3,67 +3,27 @@
 Purpose: governs quality gates, execution flow, and verification for code changes.
 Use for any implementation, refactor, or bug fix.
 
-## A) Quality gates (must pass in order)
+## A) Execution loop (every task slice)
 
-### Gate 1 — Scope clarity
-- Objective is explicit.
-- Acceptance criteria are testable.
-- Non-goals are listed.
-- Dependencies/constraints are identified.
-
-### Gate 2 — Contract clarity
-- Data model impact is identified.
-- API contract impact is identified (inputs, outputs, errors).
-- Affected files/modules are mapped via `docs/ARCHITECTURE_INDEX.md`.
-
-### Gate 3 — Test design before implementation
-- Tests are written/updated first.
-- Failing state is observed when expected.
-- Coverage includes happy path, failure path, and key edge cases.
-
-### Gate 4 — Implementation quality
-- Minimal implementation satisfies tests.
-- No dead code, hidden feature flags, or placeholder logic.
-- Error handling and logging are meaningful.
-- Keep tests in the correct test location for the project.
-
-### Gate 5 — Verification
-Run all checks that apply:
-- Unit tests for changed modules
-- Integration tests for changed APIs/flows
-- Lint and type checks
-- E2E smoke for primary UX flow when UI changed
-- Functional test
-	- Run the project while developing.
-	- Open the current page being built/ported.
-	- Inspect terminal/browser logs and fix surfaced errors before marking progress complete.
-- Build/package check if deployment artifact changed
-
-### Gate 6 — State and docs sync
-- `docs/PLAN.md` reflects both checklist status and the current task slice.
-- `docs/ARCHITECTURE_INDEX.md` updated if architecture/locations changed.
-- Project state file is updated if the repo uses one.
-- Any new operational runbook notes are added where relevant.
-
-Stop if any gate fails. Fix it before proceeding.
-
-## B) Execution loop (every task slice)
-1. Select the current task slice from `docs/PLAN.md` and keep its checklist/status current.
-2. Define expected behavior from acceptance criteria.
-3. Write failing test(s).
-4. Implement minimal code change.
-5. Run tests, then targeted checks, then broader relevant checks.
-6. If tests fail, fix the implementation or tests as needed, the rerun tests and checks.
-7. Refactor, cleanup, run linting, and fix linting problems only with tests still green.
-8. Run a build, and watch logs for errors.
-9. Run the application, and test the current routes watching for errors.
+1. Select the current task slice from `docs/PLAN.md`. Confirm the objective is explicit, acceptance criteria are testable, and non-goals are listed. Identify data model and API contract impacts (inputs, outputs, errors). Map affected files/modules via `docs/ARCHITECTURE_INDEX.md`.
+2. Write failing test(s). Coverage must include happy path, failure path, and all edge cases. Confirm the failing state before implementing.
+3. Write the minimal implementation that satisfies the tests. No dead code, hidden feature flags, or placeholder logic. Error handling and logging must be meaningful. Keep tests in the correct test location.
+4. Run unit tests, E2E tests, then broader checks (integration tests, lint, type checks, E2E smoke if UI changed).
+5. If any check fails, fix and return to step 3.
+6. Refactor and clean up. Run linting and fix issues only with tests still green.
+7. Run a build and watch logs for errors.
+8. Run the application and test the current routes.
+9. If there are errors, fix them and return to step 3.
 10. Update `docs/PLAN.md` and any affected architecture/state files.
+11. Mark the task slice complete and move to the next.
 
-## C) Bug-fix policy
+Stop if any step cannot be completed cleanly. Fix it before proceeding.
+
+## B) Bug-fix policy
 - Every bug fix must include a regression test that fails before the fix and passes after it.
 - Document root cause in project state file if the repo uses one (briefly).
 
-## D) Production-readiness checklist
+## C) Production-readiness checklist
 For changed surfaces, verify as applicable:
 - Security: authz/authn, input validation, secret handling, injection-safe queries.
 - Reliability: retries/timeouts/idempotency where needed.
@@ -72,7 +32,7 @@ For changed surfaces, verify as applicable:
 - Performance: avoid obvious regressions on critical paths.
 - Clean code: follow project conventions, no commented-out code, clear naming, no temporary/test files or code.
 
-## E) Verification evidence format (for handoff)
+## D) Verification evidence format (for handoff)
 Provide concise evidence:
 - Commands run
 - Pass/fail summary
