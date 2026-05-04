@@ -1,83 +1,496 @@
-# Vibe Code Template
+# PlanTestShip
 
-This is a clean operating system for agentic coding.
+**Plan it. Test it. Ship it.**
 
-If you want agents to move fast **without** turning your project into a mess, this is for you.
+PlanTestShip is a structured development workflow for AI-assisted coding.
 
-## What this is
+It helps developers and vibe coders use AI agents to move fast without letting the codebase turn into a mess.
 
-This template gives your agent a clear structure for:
+Instead of asking an agent to “just build it,” PlanTestShip gives you a repeatable system:
 
-- product requirements
-- architecture and ownership
-- planning
-- implementation
-- testing and verification
+> - Plan the work
+> - Write a clear prompt
+> - Map the architecture
+> - Test the behavior
+> - Build the change
+> - Review the code
+> - Verify manually
+> - Ship a focused PR
+> - Repeat
 
-Instead of letting the agent guess, drift, or create duplicate systems, this template tells it what to read, what is authoritative, and how to execute production-ready work.
+AI coding is fast. PlanTestShip makes it disciplined.
 
-## Why you should use it
+---
 
-Most agent workflows fall apart for the same reasons:
+## Why PlanTestShip exists
 
-- the requirements are vague
-- the architecture is undocumented
-- the plan lives in chat instead of files
-- the agent starts coding too early
-- nobody updates the docs after changes
+AI coding agents can generate code quickly, but speed alone is not enough.
 
-This template fixes that.
+Without structure, AI-assisted development usually breaks down because:
 
-It gives you a repeatable system that is simple enough to use quickly and strong enough to support serious production work.
+* requirements are vague
+* prompts are too broad
+* architecture is undocumented
+* plans live in chat instead of files
+* agents start coding too early
+* tests are skipped or written too late
+* PRs get too large
+* docs go stale
+* every new agent session starts from scratch
+
+PlanTestShip fixes that.
+
+It gives both the developer and the AI agent a clear workflow for planning, testing, reviewing, verifying, and shipping production-ready code.
+
+---
+
+## What PlanTestShip does
+
+PlanTestShip gives your project a lightweight operating system for AI-assisted development.
+
+It helps your agent understand:
+
+* what the product should do
+* where things belong in the architecture
+* what plan it should follow
+* what tests it should write
+* what quality gates must pass
+* what docs must stay updated
+* when a task is actually done
+
+It also helps the developer stay efficient by giving them a clear playbook for:
+
+* keeping issues small
+* writing better prompts
+* working one focused task at a time
+* reviewing AI-generated code
+* manually verifying changes
+* opening clean PRs
+* merging quickly
+
+The result is simple:
+
+**You keep the speed of AI coding, but add the discipline of a real development process.**
+
+---
+
+## Who this is for
+
+PlanTestShip is for:
+
+* developers using AI coding agents
+* vibe coders who want better structure
+* founders building MVPs with AI
+* small teams shipping fast
+* engineers who want AI speed without AI chaos
+* anyone tired of agents creating messy, untested, hard-to-review code
+
+It works especially well for:
+
+* new products
+* existing codebases
+* full-stack apps
+* web apps
+* APIs
+* mobile apps
+* monorepos
+* small teams using AI to move faster
+
+---
+
+## The core idea
+
+Most AI coding workflows ask the agent to do too much with too little structure.
+
+PlanTestShip changes the workflow from this:
+
+```text
+Prompt → Code → Hope it works
+```
+
+To this:
+
+```text
+Plan → Test → Build → Review → Verify → Ship
+```
+
+That small change makes a big difference.
+
+The agent gets clearer instructions.
+The developer gets better output.
+The codebase stays easier to understand.
+The next task starts with more context, not less.
+
+---
 
 ## Why it works
 
-- **[one source of truth]**
-  Product requirements live in `docs/PROJECT.md`. Architecture lives in `docs/ARCHITECTURE_INDEX.md`. Execution lives in `docs/PLAN.md`.
+### 1. One source of truth
 
-- **[clear runtime rules]**
-  `.agent/AGENT.md` tells the agent what to load, what governs the work, and what must stay up to date.
+Product requirements live in `docs/PROJECT.md`.
 
-- **[planning before coding]**
-  The agent has to understand the project and produce a coherent plan before implementation starts.
+Architecture and ownership live in `docs/ARCHITECTURE_INDEX.md`.
 
-- **[production-ready execution]**
-  `.agent/skills/quality-and-tdd.md` forces quality gates, verification, and disciplined execution.
+Execution plans live in `docs/PLAN.md`.
 
-- **[less chaos, better handoffs]**
-  The docs stay current, so the next agent session does not start from scratch.
+The agent is told what is authoritative, what to read first, and what must stay updated.
 
-## What is in the template
+---
 
-### Product and project docs
-- `docs/PROJECT.md` → what the product does, what it should include, and what success looks like
-- `docs/ARCHITECTURE_INDEX.md` → where things live, who owns what, and where changes belong
-- `docs/PLAN.md` → the current implementation plan and active task slices
-- `docs/DEVELOPER_PLAYBOOK.md` → how to work with the AI effectively: issue workflow, prompt writing, review, and done criteria
-- `docs/design/` → the design reference folder.
+### 2. Plan before code
+
+Before implementation, the agent must understand the project and produce a clear plan.
+
+That plan should include:
+
+* assumptions and blockers
+* impacted files and modules
+* data model or schema impact
+* API contract changes
+* a step-by-step implementation checklist mapped to tests
+
+This keeps the agent from guessing, drifting, or coding too early.
+
+---
+
+### 3. Test-first execution
+
+PlanTestShip includes a quality and TDD workflow that pushes the agent to:
+
+* select a small task slice
+* write failing tests
+* implement the minimum code needed
+* run verification checks
+* fix failures
+* refactor only after tests pass
+* update the plan and architecture docs
+
+The goal is not just to generate code.
+
+The goal is to generate code that can be trusted.
+
+---
+
+### 4. A real developer playbook
+
+The AI agent needs structure, but so does the developer.
+
+PlanTestShip includes a developer playbook that helps you work efficiently with AI:
+
+* work on one issue at a time
+* keep one active PR at a time
+* keep issues small enough to finish in one focused work session
+* write short, specific prompts
+* review the AI’s work carefully
+* manually verify the app, flow, or endpoint
+* keep PRs small and easy to review
+* merge quickly once approved
+
+The system does not replace the developer.
+
+It makes the developer more effective.
+
+---
+
+### 5. Better handoffs between sessions
+
+AI coding sessions lose momentum when the context only exists in chat.
+
+PlanTestShip keeps important project state in files, so every new session can quickly understand:
+
+* what the product is
+* how the architecture works
+* what the current plan is
+* what task is active
+* what has already been verified
+* what still needs to happen
+
+That means less re-explaining and more shipping.
+
+---
+
+## What is included
+
+### Project docs
+
+* `docs/PROJECT.md`
+  Defines what the product does, what it should include, user flows, requirements, and acceptance criteria.
+
+* `docs/ARCHITECTURE_INDEX.md`
+  Defines where things live, who owns what, and where changes belong.
+
+* `docs/PLAN.md`
+  Tracks the current implementation plan, active task slices, and verification checklist.
+
+* `docs/DEVELOPER_PLAYBOOK.md`
+  Gives the human developer a practical workflow for using AI effectively, including issue selection, prompt writing, review, manual verification, PR flow, and done criteria.
+
+* `docs/design/`
+  A place to store design references, screenshots, flows, mockups, and visual context.
+
+---
 
 ### Agent runtime files
-- `.agent/AGENT.md` → load order, source of truth, execution policy, and done criteria
-- `.agent/INIT_PROMPT.md` → bootstrap prompt for adapting an existing active project to this workflow
-- `.agent/architecture-rules/*.md` → service-specific technical rules loaded only when relevant
-- `.agent/skills/quality-and-tdd.md` → quality gates, execution loop, and verification standards
 
-## How to use this in a brand new project
+* `.agent/AGENT.md`
+  Defines the agent load order, source-of-truth rules, execution policy, change control, and definition of done.
 
-1. Copy the template's `.agent/` and `docs/` folders into your new project.
+* `.agent/INIT_PROMPT.md`
+  A bootstrap prompt for adapting an existing active project to the PlanTestShip workflow.
+
+* `.agent/architecture-rules/*.md`
+  Service-specific architecture rules loaded only when relevant.
+
+* `.agent/skills/quality-and-tdd.md`
+  Defines the quality gates, test-first execution loop, verification standards, and handoff format.
+
+---
+
+## Quick start
+
+### Use PlanTestShip in a new project
+
+1. Copy the `.agent/` and `docs/` folders into your new project.
 2. Fill in `docs/PROJECT.md` with the product, pages, user flows, requirements, and acceptance criteria.
-3. Create or update `docs/ARCHITECTURE_INDEX.md` so it reflects the architecture you actually want.
-4. Adjust `.agent/architecture-rules/*.md` only if the project needs different service rules.
-5. Start your agent and tell it to read `.agent/AGENT.md` and follow it.
-6. Let the agent generate `docs/PLAN.md` from `docs/PROJECT.md`, `docs/ARCHITECTURE_INDEX.md`, and the relevant architecture rules.
-7. Execute work through `.agent/skills/quality-and-tdd.md` and keep `docs/PLAN.md` and `docs/ARCHITECTURE_INDEX.md` current as the project evolves.
+3. Create or update `docs/ARCHITECTURE_INDEX.md` so it reflects the architecture you want.
+4. Adjust `.agent/architecture-rules/*.md` only if your project needs different service rules.
+5. Start your AI coding agent.
+6. Tell it to read `.agent/AGENT.md` and follow PlanTestShip.
+7. Let the agent generate `docs/PLAN.md` from:
 
-## How to use this in an existing project
+   * `docs/PROJECT.md`
+   * `docs/ARCHITECTURE_INDEX.md`
+   * relevant architecture rules
+8. Execute work through `.agent/skills/quality-and-tdd.md`.
+9. Keep `docs/PLAN.md` and `docs/ARCHITECTURE_INDEX.md` current as the project evolves.
 
-1. Copy the template's `.agent/` and `docs/` folders into the existing project.
-2. Paste `.agent/INIT_PROMPT.md` into the agent session for that project.
+---
+
+### Use PlanTestShip in an existing project
+
+1. Copy the `.agent/` and `docs/` folders into the existing project.
+2. Paste `.agent/INIT_PROMPT.md` into your agent session.
 3. Have the agent read the current docs, config, file structure, and implementation entrypoints.
 4. Have the agent create or update `docs/ARCHITECTURE_INDEX.md` from the real codebase.
-5. Have the agent fill in as much of `docs/PROJECT.md` as it can from actual evidence in the docs and code.
-6. Have the agent report what is still missing from `docs/PROJECT.md` so you can finish the parts that require product decisions.
-7. Once the project is understood and documented, move into planning and implementation through `.agent/AGENT.md`.
+5. Have the agent fill in as much of `docs/PROJECT.md` as it can from actual evidence.
+6. Have the agent report what is still missing from `docs/PROJECT.md`.
+7. Finish the product decisions that require human judgment.
+8. Move into planning and implementation through `.agent/AGENT.md`.
+
+---
+
+## Recommended developer workflow
+
+PlanTestShip works best when you keep the work small and focused.
+
+### 1. Pick one issue
+
+Choose an issue that:
+
+* has a clear outcome
+* can be completed in one focused work session
+* does not overlap heavily with someone else’s work
+* can become a small, reviewable PR
+
+If the issue is too large, break it down first.
+
+---
+
+### 2. Write a clear prompt
+
+Your prompt should be short, specific, and scoped.
+
+Use this structure:
+
+```text
+Read and follow `.agent/AGENT.md`.
+
+Task:
+[Say what needs to be built or fixed in 1 to 3 short sentences.]
+
+Focus areas:
+- [file, folder, component, endpoint, or service]
+- [file, folder, component, endpoint, or service]
+
+Requirements:
+- [requirement]
+- [requirement]
+- [Do not change X, Y, or Z]
+
+Edge cases:
+Please consider any other edge cases that might be relevant and add them to the list.
+- [edge case]
+- [edge case]
+```
+
+You do not need to explain the full workflow every time.
+PlanTestShip already gives the agent the process.
+
+Your job is to give it a clear task.
+
+---
+
+### 3. Let the agent plan before coding
+
+The agent should read the required docs, inspect the relevant files, identify the impacted areas, and produce a testable plan before implementation starts.
+
+Do not skip this step.
+
+A good plan prevents messy code.
+
+---
+
+### 4. Review the code
+
+Do not blindly trust AI-generated code.
+
+Review for:
+
+* correctness
+* clean architecture
+* edge cases
+* logging
+* error handling
+* security issues
+* unnecessary complexity
+* unrelated changes
+* consistency with existing patterns
+
+If the output is weak, improve the prompt and run the agent again.
+
+---
+
+### 5. Manually verify the change
+
+Passing tests are not enough.
+
+You should still:
+
+* run the app, page, flow, or endpoint yourself
+* inspect the real behavior
+* check logs when relevant
+* confirm the user experience makes sense
+* test important edge cases manually
+
+---
+
+### 6. Ship a focused PR
+
+Open a PR when:
+
+* the issue is solved
+* tests pass
+* you reviewed the code
+* you manually verified the change
+* the branch is up to date
+* the PR is small and focused
+
+Good target:
+
+* one issue per PR
+* under 300 lines changed when possible
+* fast review
+* fast merge
+
+---
+
+## Example prompt
+
+```text
+Read and follow `.agent/AGENT.md`.
+
+Task:
+Fix signup so users see a clear message when an email is already in use.
+
+Focus areas:
+- `SignupForm.tsx`
+- `authController.ts`
+- `authService.ts`
+
+Requirements:
+- Return a clean backend error for duplicate email
+- Show a friendly message in the UI
+- Keep the existing signup flow unchanged otherwise
+- Do not change the success path for signup
+
+Edge cases:
+Please consider any other edge cases that might be relevant and add them to the list.
+- Email casing differences
+- Unexpected server failure
+```
+
+---
+
+## Definition of done
+
+A task is not done just because the agent wrote code.
+
+A task is done when:
+
+* the AI followed the PlanTestShip workflow
+* the acceptance criteria are satisfied
+* tests cover the changed behavior
+* verification checks pass
+* the developer reviewed the code
+* the change was manually verified
+* logging, error handling, architecture, and efficiency are solid
+* docs and plan files are updated
+* the PR is approved and merged
+
+---
+
+## The promise
+
+PlanTestShip helps you move from chaotic AI coding to structured AI-assisted development.
+
+You still get the speed.
+
+But now the agent has:
+
+* context
+* constraints
+* a plan
+* tests
+* quality gates
+* documentation discipline
+
+And the developer has:
+
+* a repeatable workflow
+* better prompts
+* smaller issues
+* cleaner reviews
+* faster PRs
+* more confidence in what ships
+
+---
+
+## Use this if you want to
+
+* stop agents from guessing
+* stop plans from getting lost in chat
+* stop docs from going stale
+* stop PRs from getting too big
+* stop AI-generated code from skipping tests
+* make every coding session easier to continue
+* ship faster without losing control of the codebase
+
+---
+
+## Bottom line
+
+PlanTestShip gives AI the system.
+You give AI the task.
+
+Keep the work small.
+Make the prompt clear.
+Plan before coding.
+Test before trusting.
+Review before merging.
+Ship with confidence.
+
+---
+
+## License
+
+MIT
