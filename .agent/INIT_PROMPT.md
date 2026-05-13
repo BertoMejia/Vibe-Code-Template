@@ -6,4 +6,5 @@ This is an existing active project. Adapt it to the Vibe Code Template workflow.
 4. Do not invent missing requirements. If something cannot be determined from the project, leave it for the user and track it clearly.
 5. Update the target project's `README.md` to tell new contributors that the project uses the Vibe Code Template and link them to `https://github.com/BertoMejia/Vibe-Code-Template` for usage instructions.
 6. Please update .agent/architecture-rules/* to match the project's architecture, conventions, and linting rules.
-7. At the end, provide a concise report of what information is still missing in `docs/PROJECT.md`, grouped by section, so the user can finish it.
+7. If linter/formatter config files (e.g., `pyproject.toml`, `.eslintrc`, `.prettierrc`) are missing for any service, create them using the coding standard defined in the corresponding `.agent/architecture-rules/*.md` file (PEP 8 for Python; Airbnb for TypeScript/JavaScript).
+8. At the end, provide a concise report of what information is still missing in `docs/PROJECT.md`, grouped by section, so the user can finish it.

@@ -58,5 +58,13 @@
 - Mobile API access: `mobile/src/services/apiClient`
 - Shared contracts and schemas: `shared/`
 
+## Linting commands
+| Service | Command |
+|--------|---------|
+| API (`/api`) | `ruff check . && ruff format --check . && mypy .` |
+| Webapp (`/webapp`) | `eslint . --ext .ts,.tsx && prettier --check .` |
+| Mobile (`/mobile`) | `eslint . --ext .ts,.tsx && prettier --check .` |
+| Shared / root | Run the linter for every modified service. |
+
 ## Update rule
 If folder/module locations change, update this file in the same patch.

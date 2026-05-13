@@ -58,10 +58,21 @@ Load this file only when the project includes a web application.
 - Lazy-load heavy client-only features when possible
 - Do not place business rules in components or client-only utilities when the API should own them
 
-## Code style
-- Follow standard TypeScript/JavaScript naming conventions; match the project's ESLint configuration.
-- Document public classes, methods, and utility functions with JSDoc.
-- Avoid excessive primitive types; encapsulate related data in composite types.
+## Coding standard
+Use the **Airbnb JavaScript/TypeScript Style Guide** — the most widely accepted standard for React and Next.js projects.
+- Naming: `camelCase` for variables/functions, `PascalCase` for components/classes, `UPPER_CASE` for constants.
+- Semicolons: required.
+- Quotes: single quotes for JS/TS strings.
+- Trailing commas: required (ESLint `comma-dangle: ['error', 'always-multiline']`).
+- Indentation: 2 spaces.
+- Line length: 100 characters max.
+- JSX: double quotes in JSX attributes.
+- ESLint: `@typescript-eslint`, `eslint-config-next`, `eslint-config-airbnb-base`, and `eslint-config-prettier`.
+- Prettier: format on save with `.prettierrc`.
+- Return types: explicit on all exported/public functions and React component signatures.
+- Avoid `any`; use `unknown` with type guards when the type is not known.
+- Document all public functions, classes, methods, hooks, and utility functions with JSDoc or TSDoc.
+- If `.eslintrc` / `eslint.config.js` or `.prettierrc` does not exist in `/webapp`, create them using the standard Next.js + TypeScript + Airbnb configuration.
 
 ## Testing
 - Frontend tests in `/webapp/test`.

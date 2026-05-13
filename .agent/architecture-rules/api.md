@@ -69,11 +69,17 @@ Load this file only when the project includes an API or backend service.
 - `/videos/<entity-type>/<entity-id>/<file>.mp4`
 - [insert special hierarchy here]
 
-## Code style
-- Follow PEP 8 naming conventions; match the project's linting configuration.
-- Document public classes and methods with PEP-style docstrings.
-- Prefer immutability for data; avoid mutating shared state.
+## Coding standard
+Use **PEP 8** — the official and most widely accepted Python style guide.
+- Naming: `snake_case` for functions/variables, `PascalCase` for classes, `UPPER_CASE` for constants.
+- Indentation: 4 spaces.
+- Line length: 88–100 characters max.
+- Imports: grouped as stdlib → third-party → local, sorted alphabetically within each group.
+- Docstrings: Google style (PEP 257 compliant) on all public modules, classes, methods, and functions.
+- Type hints: required on all function signatures, parameters, and return values.
+- Prefer immutability; avoid mutating shared state.
 - Avoid excessive primitive types; encapsulate related data in composite types.
+- If `pyproject.toml` or `ruff.toml` does not exist in `/api`, create one with the standard Ruff + mypy configuration.
 
 ## Testing
 - Backend tests in `/api/test`.

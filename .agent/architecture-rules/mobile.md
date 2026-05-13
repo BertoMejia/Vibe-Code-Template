@@ -39,10 +39,20 @@ Load this file only when the project includes a mobile application.
 - Optimize list rendering, image loading, and app startup time on critical flows
 - Keep accessibility support in place for labels, focus order, touch targets, and screen readers
 
-## Code style
-- Follow standard TypeScript/JavaScript naming conventions; match the project's ESLint configuration.
-- Document public classes, methods, and utility functions with JSDoc.
-- Avoid excessive primitive types; encapsulate related data in composite types.
+## Coding standard
+Use the **Airbnb JavaScript/TypeScript Style Guide** — the most widely accepted standard for React Native projects.
+- Naming: `camelCase` for variables/functions, `PascalCase` for components/classes, `UPPER_CASE` for constants.
+- Semicolons: required.
+- Quotes: single quotes for JS/TS strings.
+- Trailing commas: required (ESLint `comma-dangle: ['error', 'always-multiline']`).
+- Indentation: 2 spaces.
+- Line length: 100 characters max.
+- ESLint: `@typescript-eslint`, React Native specific rules, `eslint-config-airbnb-base`, and `eslint-config-prettier`.
+- Prettier: format on save with `.prettierrc`.
+- Return types: explicit on all exported/public functions and React component signatures.
+- Avoid `any`; use `unknown` with type guards when the type is not known.
+- Document all public functions, classes, methods, hooks, screens, and utility functions with JSDoc or TSDoc.
+- If `.eslintrc` / `eslint.config.js` or `.prettierrc` does not exist in `/mobile`, create them using the standard React Native + TypeScript + Airbnb configuration.
 
 ## Testing
 - Mobile tests in `/mobile/test`.
